@@ -1,5 +1,5 @@
 //BAse url
-const base_url = "http://www.omdbapi.com/";
+const base_url = "https://www.omdbapi.com/";
 
 //api key
 const key = "b85f8d45";
