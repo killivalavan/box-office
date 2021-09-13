@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchRecent());
-  }, []);
+  }, [popular, cartoon, cartoon2]);
 
   return (
     <>
