@@ -140,7 +140,7 @@ const Ratings = styled.div`
   .percentage {
     position: absolute;
     top: 25%;
-    /* left: 3%; */
+    left: 1%;
     //transform: translate(-2px, -25px);
   }
   .imdb {
