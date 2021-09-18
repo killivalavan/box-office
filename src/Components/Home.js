@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchRecent } from "../Actions/searchAction";
 import Movie from "./Movie";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
+import MovieDetails from "./MovieDetails";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -12,15 +14,20 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchRecent());
-  }, [popular, cartoon, cartoon2]);
+  }, []);
+
+  // get loaction
+  const location = useLocation();
+  const pathId = location.pathname.split("/")[1];
 
   return (
     <>
-      {searched.Search && (
+      {/* {pathId && <MovieDetails pathID={pathId} />} */}
+      {searched.length ? (
         <div>
           <h1>Searched results</h1>
           <StyledMovie>
-            {searched.Search.map((item) => (
+            {searched.map((item) => (
               <Movie
                 imdbID={item.imdbID}
                 img={item.Poster}
@@ -31,6 +38,8 @@ const Home = () => {
             ))}
           </StyledMovie>
         </div>
+      ) : (
+        ""
       )}
 
       <h1>Popular series</h1>
@@ -76,10 +85,10 @@ const Home = () => {
 };
 
 const StyledMovie = styled.div`
-  background: black;
-  color: white;
   display: flex;
   flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
 `;
 
 export default Home;

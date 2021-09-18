@@ -1,21 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { fetchDetail } from "../Actions/movieAction";
+import { useDispatch } from "react-redux";
 
 const Movie = ({ img, imdbID, title, year }) => {
-  const onclickHandler = () => {
-    console.log(imdbID);
+  //Load Detail
+  const dispatch = useDispatch();
+
+  const LoadDetailHandler = () => {
+    dispatch(fetchDetail(imdbID));
   };
 
   return (
-    <StyledMovie>
-      <Link to={`/${imdbID}`}>
-        <h2>
-          {title} ({year})
-        </h2>
-        <img onClick={onclickHandler} src={img} alt='No poster found!' />
-      </Link>
-    </StyledMovie>
+    <>
+      {img !== "N/A" ? (
+        <StyledMovie onClick={LoadDetailHandler}>
+          <Link to={`/${imdbID}`}>
+            <h2>
+              {title} ({year})
+            </h2>
+            <img src={img} alt='No poster found!' />
+          </Link>
+        </StyledMovie>
+      ) : (
+        ""
+      )}
+    </>
   );
 };
 

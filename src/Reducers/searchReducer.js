@@ -10,7 +10,7 @@ const searchReducer = (state = initState, action) => {
     case "FETCH_SEARCHED":
       return {
         ...state,
-        searched: action.payload.searched.data,
+        searched: action.payload.searched.data.Search,
       };
     case "POPULAR":
       return {
