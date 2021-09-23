@@ -5,6 +5,7 @@ import {
   cartoonsURL,
   cartoons2URL,
   netflixURL,
+  fantasyURL,
 } from "../api";
 
 export const fetchSearch = (search) => async (dispatch) => {
@@ -23,7 +24,7 @@ export const fetchRecent = () => async (dispatch) => {
   const cartoonData = await axios.get(cartoonsURL());
   const cartoonData2 = await axios.get(cartoons2URL());
   const kissingBooth = await axios.get(netflixURL());
-
+  const harryPotter = await axios.get(fantasyURL());
   dispatch({
     type: "POPULAR",
     payload: {
@@ -31,6 +32,7 @@ export const fetchRecent = () => async (dispatch) => {
       cartoon: cartoonData,
       cartoon2: cartoonData2,
       netflix: kissingBooth,
+      fantasy: harryPotter,
     },
   });
 };

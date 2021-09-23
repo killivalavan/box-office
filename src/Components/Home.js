@@ -7,9 +7,8 @@ import { useLocation } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { popular, searched, cartoon, cartoon2, kissingBooth } = useSelector(
-    (state) => state.Movie
-  );
+  const { popular, searched, cartoon, cartoon2, kissingBooth, harryPotter } =
+    useSelector((state) => state.Movie);
 
   useEffect(() => {
     dispatch(fetchRecent());
@@ -18,6 +17,12 @@ const Home = () => {
   // get loaction
   const location = useLocation();
   const pathId = location.pathname.split("/")[1];
+
+  if (location.pathname !== "/") {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
 
   return (
     <Title>
@@ -53,6 +58,19 @@ const Home = () => {
         ))}
       </StyledMovie>
 
+      <h2>Fantasy Novel's</h2>
+      <StyledMovie>
+        {harryPotter.map((item) => (
+          <Movie
+            imdbID={item.imdbID}
+            img={item.Poster}
+            title={item.Title}
+            year={item.Year}
+            key={item.imdbID}
+          />
+        ))}
+      </StyledMovie>
+
       <h2>Netflix</h2>
       <StyledMovie>
         {kissingBooth.map((item) => (
@@ -66,7 +84,7 @@ const Home = () => {
         ))}
       </StyledMovie>
 
-      <h2>Cartoon movie's</h2>
+      <h2>Cartoon's</h2>
       <StyledMovie>
         {cartoon2.map((item) => (
           <Movie
@@ -99,15 +117,13 @@ const Title = styled.div`
   margin-left: 5rem;
   h2 {
     margin: 4rem 0rem 0rem 0rem;
-    text-decoration: underline;
+    color: #f50057;
   }
 `;
 
 const StyledMovie = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  margin: auto;
 `;
 
 export default Home;

@@ -4,6 +4,7 @@ const initState = {
   cartoon: [],
   cartoon2: [],
   kissingBooth: [],
+  harryPotter: [],
 };
 
 const searchReducer = (state = initState, action) => {
@@ -20,6 +21,7 @@ const searchReducer = (state = initState, action) => {
         cartoon: action.payload.cartoon.data.Search,
         cartoon2: action.payload.cartoon2.data.Search,
         kissingBooth: action.payload.netflix.data.Search,
+        harryPotter: action.payload.fantasy.data.Search,
       };
 
     case "CLEAR_SEARCHED":

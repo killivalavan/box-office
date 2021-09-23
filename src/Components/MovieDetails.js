@@ -4,6 +4,8 @@ import styled from "styled-components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import award from "../img/medal.png";
 import vote from "../img/like.png";
+import close from "../img/close.svg";
+import icon from "../img/icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
@@ -33,8 +35,26 @@ const MovieDetails = ({ pathID }) => {
   return (
     <>
       <Details>
+        <div className='title'>
+          <img src={icon} alt='' />
+          <h2>Box Office</h2>
+        </div>
         <div ref={closeRef} onClick={closeHandler} className='close'>
-          <FontAwesomeIcon size='3x' icon={faTimes} />
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            class='h-4 w-4'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+          >
+            <path
+              stroke-linecap='round'
+              stroke-linejoin='round'
+              stroke-width='2'
+              d='M6 18L18 6M6 6l12 12'
+            />
+          </svg>
+          <img src={close} alt='' />
         </div>
 
         {movieDetails.Response === "True" ? (
@@ -131,17 +151,36 @@ const Details = styled.div`
   background: rgb(0, 0, 0);
   overflow-y: scroll;
 
+  .title {
+    margin-left: 5rem;
+    margin-top: 0.5rem;
+    display: flex;
+    h2 {
+      font-weight: 200;
+      font-size: 1.3rem;
+      font-family: "Pacifico", cursive;
+    }
+    img {
+      width: 2rem;
+      height: 2rem;
+      margin-right: 0.6rem;
+    }
+  }
+
   .close {
-    width: 4rem;
+    width: 3rem;
     position: absolute;
-    right: 0;
-    top: 2%;
+    right: 5%;
+    top: 10%;
     transform: translate(-2px, -2px);
     color: #a8a8a8;
     transition: all 0.5s ease;
     &:hover {
       color: white;
       cursor: pointer;
+    }
+    img {
+      color: white;
     }
   }
 `;

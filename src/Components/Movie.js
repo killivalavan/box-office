@@ -18,9 +18,9 @@ const Movie = ({ img, imdbID, title, year }) => {
         {img !== "N/A" ? (
           <StyledMovie onClick={LoadDetailHandler}>
             <Link to={`/${imdbID}`}>
-              <h3>
+              <p>
                 {title} ({year})
-              </h3>
+              </p>
               <img src={img} alt='No poster found!' />
             </Link>
           </StyledMovie>
@@ -36,7 +36,7 @@ const Image = styled.div``;
 
 const StyledMovie = styled.div`
   margin-right: 1.5rem;
-  h3 {
+  p {
     font-size: 1rem;
     margin: 2rem 0rem 1.5rem 0rem;
     width: 60%;

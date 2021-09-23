@@ -21,5 +21,8 @@ export const cartoons2URL = () => `${base_url}?s=Toy story&${api_key}`;
 //netflix
 export const netflixURL = () => `${base_url}?s=kissing booth&${api_key}`;
 
+//harry potter
+export const fantasyURL = () => `${base_url}?s=Harry potter&${api_key}`;
+
 // GAme Details
 export const movieDetails = (id) => `${base_url}?i=${id}&${api_key}`;
