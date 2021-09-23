@@ -8,7 +8,6 @@ function App() {
   return (
     <div className='App'>
       <GlobalStyle />
-      <h2>IMDB</h2>
       <Nav />
       <Route path='/:id'>
         <MovieDetails />

@@ -14,27 +14,31 @@ const Movie = ({ img, imdbID, title, year }) => {
 
   return (
     <>
-      {img !== "N/A" ? (
-        <StyledMovie onClick={LoadDetailHandler}>
-          <Link to={`/${imdbID}`}>
-            <h2>
-              {title} ({year})
-            </h2>
-            <img src={img} alt='No poster found!' />
-          </Link>
-        </StyledMovie>
-      ) : (
-        ""
-      )}
+      <Image>
+        {img !== "N/A" ? (
+          <StyledMovie onClick={LoadDetailHandler}>
+            <Link to={`/${imdbID}`}>
+              <h3>
+                {title} ({year})
+              </h3>
+              <img src={img} alt='No poster found!' />
+            </Link>
+          </StyledMovie>
+        ) : (
+          ""
+        )}
+      </Image>
     </>
   );
 };
 
+const Image = styled.div``;
+
 const StyledMovie = styled.div`
-  margin-left: 1rem;
-  h2 {
+  margin-right: 1.5rem;
+  h3 {
     font-size: 1rem;
-    margin-left: 1rem;
+    margin: 2rem 0rem 1.5rem 0rem;
     width: 60%;
   }
   img {

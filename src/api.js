@@ -18,5 +18,8 @@ export const cartoonsURL = () => `${base_url}?s=tom and jerry&${api_key}`;
 //toy story
 export const cartoons2URL = () => `${base_url}?s=Toy story&${api_key}`;
 
+//netflix
+export const netflixURL = () => `${base_url}?s=kissing booth&${api_key}`;
+
 // GAme Details
 export const movieDetails = (id) => `${base_url}?i=${id}&${api_key}`;

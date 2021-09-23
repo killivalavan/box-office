@@ -35,9 +35,15 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
-    h1,h2,h3,h4,p{
+    h1,h2,h3,h4,p, ul,span, button{
         color: white;
         font-family: 'Stylish', sans-serif;
+    }
+
+    button{
+        //background: transparent;
+        border: none;
+        outline: none;
     }
 `;
 

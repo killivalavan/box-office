@@ -4,11 +4,10 @@ import { fetchRecent } from "../Actions/searchAction";
 import Movie from "./Movie";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
-import MovieDetails from "./MovieDetails";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { popular, searched, cartoon, cartoon2 } = useSelector(
+  const { popular, searched, cartoon, cartoon2, kissingBooth } = useSelector(
     (state) => state.Movie
   );
 
@@ -21,11 +20,10 @@ const Home = () => {
   const pathId = location.pathname.split("/")[1];
 
   return (
-    <>
-      {/* {pathId && <MovieDetails pathID={pathId} />} */}
+    <Title>
       {searched.length ? (
         <div>
-          <h1>Searched results</h1>
+          <h2>Searched results</h2>
           <StyledMovie>
             {searched.map((item) => (
               <Movie
@@ -42,7 +40,7 @@ const Home = () => {
         ""
       )}
 
-      <h1>Popular series</h1>
+      <h2>Popular series</h2>
       <StyledMovie>
         {popular.map((item) => (
           <Movie
@@ -55,7 +53,20 @@ const Home = () => {
         ))}
       </StyledMovie>
 
-      <h1>Cartoon movie's</h1>
+      <h2>Netflix</h2>
+      <StyledMovie>
+        {kissingBooth.map((item) => (
+          <Movie
+            imdbID={item.imdbID}
+            img={item.Poster}
+            title={item.Title}
+            year={item.Year}
+            key={item.imdbID}
+          />
+        ))}
+      </StyledMovie>
+
+      <h2>Cartoon movie's</h2>
       <StyledMovie>
         {cartoon2.map((item) => (
           <Movie
@@ -68,7 +79,7 @@ const Home = () => {
         ))}
       </StyledMovie>
 
-      <h1>Joseph Barbera</h1>
+      <h2>Joseph Barbera</h2>
       <StyledMovie>
         {cartoon.map((item) => (
           <Movie
@@ -80,14 +91,22 @@ const Home = () => {
           />
         ))}
       </StyledMovie>
-    </>
+    </Title>
   );
 };
+
+const Title = styled.div`
+  margin-left: 5rem;
+  h2 {
+    margin: 4rem 0rem 0rem 0rem;
+    text-decoration: underline;
+  }
+`;
 
 const StyledMovie = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   margin: auto;
 `;
 
