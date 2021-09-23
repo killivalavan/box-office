@@ -7,11 +7,11 @@ import vote from "../img/like.png";
 import close from "../img/close.svg";
 import icon from "../img/icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 
-const MovieDetails = ({ pathID }) => {
-  const { movieDetails } = useSelector((state) => state.MovieDetail);
+const MovieDetails = () => {
+  const { movieDetails, isLoading } = useSelector((state) => state.MovieDetail);
 
   //Rating
   const Count = () => {
@@ -34,109 +34,118 @@ const MovieDetails = ({ pathID }) => {
 
   return (
     <>
-      <Details>
-        <div className='title'>
-          <img src={icon} alt='' />
-          <h2>Box Office</h2>
-        </div>
-        <div ref={closeRef} onClick={closeHandler} className='close'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            class='h-4 w-4'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              d='M6 18L18 6M6 6l12 12'
-            />
-          </svg>
-          <img src={close} alt='' />
-        </div>
+      {!isLoading && (
+        <Details>
+          <div className='title'>
+            <img src={icon} alt='' />
+            <h2 onClick={closeHandler}>
+              <span>B</span>ox Office
+            </h2>
+          </div>
+          <div ref={closeRef} onClick={closeHandler} className='close'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='h-4 w-4'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
+                d='M6 18L18 6M6 6l12 12'
+              />
+            </svg>
+            <img src={close} alt='' />
+          </div>
 
-        {movieDetails.Response === "True" ? (
-          <Card>
-            <Poster>
-              <img src={movieDetails.Poster} alt='No poster found!' />
-            </Poster>
-            <Content>
-              <h1>
-                {movieDetails.Title}
-                <span> ({movieDetails.Year})</span>
-              </h1>
-              <List>
-                <ul>
-                  <li>{movieDetails.Language}</li>
-                  <li>{movieDetails.Released}</li>
-                  <li>{movieDetails.Genre}</li>
-                  <li>{movieDetails.Runtime}</li>
-                </ul>
-              </List>
-              {movieDetails.Ratings.length && (
-                <Ratings>
-                  <p className='percentage'>{Count()}</p>
-                  <div className='imdb'>
-                    <CircularProgress
-                      className='progress'
-                      variant='determinate'
-                      color='secondary'
-                      thickness={5}
-                      value={parseInt(
-                        movieDetails.imdbRating.split(".")[0] + "0"
-                      )}
-                    />
-                    <span>
-                      IMDB
-                      <br /> Score %
-                    </span>
+          {movieDetails.Response === "True" ? (
+            <Card>
+              <Poster>
+                <img src={movieDetails.Poster} alt='No poster found!' />
+              </Poster>
+              <Content>
+                <h1>
+                  {movieDetails.Title}
+                  <span> ({movieDetails.Year})</span>
+                </h1>
+                <List>
+                  <ul>
+                    <li>{movieDetails.Language}</li>
+                    <li>{movieDetails.Released}</li>
+                    <li>{movieDetails.Genre}</li>
+                    <li>{movieDetails.Runtime}</li>
+                  </ul>
+                </List>
+                {movieDetails.Ratings.length && (
+                  <Ratings>
+                    <p className='percentage'>{Count()}</p>
+                    <div className='imdb'>
+                      <CircularProgress
+                        className='progress'
+                        variant='determinate'
+                        color='secondary'
+                        thickness={5}
+                        value={parseInt(
+                          movieDetails.imdbRating.split(".")[0] + "0"
+                        )}
+                      />
+                      <span>
+                        IMDB
+                        <br /> Score %
+                      </span>
+                    </div>
+                  </Ratings>
+                )}
+                <Vote>
+                  <p>
+                    <img src={vote} alt='' />
+                    {movieDetails.imdbVotes}
+                  </p>
+                </Vote>
+                <Awards>
+                  <p>
+                    <img src={award} alt='' />
+                    {movieDetails.Awards}
+                  </p>
+                </Awards>
+                {movieDetails.Plot && (
+                  <Overview>
+                    <h3>Overview</h3>
+                    <p>{movieDetails.Plot}</p>
+                  </Overview>
+                )}
+                <Crew>
+                  <div className='director'>
+                    <h3>Director</h3>
+                    <p>{movieDetails.Director}</p>
                   </div>
-                </Ratings>
-              )}
-              <Vote>
-                <p>
-                  <img src={vote} alt='' />
-                  {movieDetails.imdbVotes}
-                </p>
-              </Vote>
-              <Awards>
-                <p>
-                  <img src={award} alt='' />
-                  {movieDetails.Awards}
-                </p>
-              </Awards>
-              {movieDetails.Plot && (
-                <Overview>
-                  <h3>Overview</h3>
-                  <p>{movieDetails.Plot}</p>
-                </Overview>
-              )}
-              <Crew>
-                <div className='director'>
-                  <h3>Director</h3>
-                  <p>{movieDetails.Director}</p>
-                </div>
-                <div className='Actors'>
-                  <h3>Actors</h3>
-                  <p>{movieDetails.Actors}</p>
-                </div>
-                <div className='writer'>
-                  <h3>Writer</h3>
-                  <p>{movieDetails.Writer}</p>
-                </div>
-              </Crew>
-              <button className='Trailer'>
-                <FontAwesomeIcon className='play' icon={faPlay} />
-                Trailer
-              </button>
-            </Content>
-          </Card>
-        ) : (
-          <h2>{movieDetails.Error}</h2>
-        )}
-      </Details>
+                  <div className='Actors'>
+                    <h3>Actors</h3>
+                    <p>{movieDetails.Actors}</p>
+                  </div>
+                  <div className='writer'>
+                    <h3>Writer</h3>
+                    <p>{movieDetails.Writer}</p>
+                  </div>
+                </Crew>
+                <a
+                  href='https://www.youtube.com/'
+                  target='_blank'
+                  className='Trailer'
+                  rel='noreferrer'
+                >
+                  <FontAwesomeIcon className='play' icon={faPlay} />
+                  Trailer
+                </a>
+              </Content>
+            </Card>
+          ) : (
+            <h2>{movieDetails.Error}</h2>
+          )}
+        </Details>
+      )}
     </>
   );
 };
@@ -156,9 +165,14 @@ const Details = styled.div`
     margin-top: 0.5rem;
     display: flex;
     h2 {
+      cursor: pointer;
       font-weight: 200;
       font-size: 1.3rem;
       font-family: "Pacifico", cursive;
+      span {
+        color: #f50057;
+        font-family: "Pacifico", cursive;
+      }
     }
     img {
       width: 2rem;
@@ -215,22 +229,25 @@ const Content = styled.div`
       }
     }
   }
-  button {
+  a {
     width: 10rem;
     padding: 0.5rem 1.5rem;
     margin-top: 2rem;
     background: transparent;
+    text-align: center;
     color: white;
     cursor: pointer;
     border: 3px solid #f50057;
     font-size: 1rem;
     font-weight: bold;
-    .play {
-      margin-right: 0.6rem;
-      color: #f50057;
-      &:hover {
+    &:hover {
+      .play {
         color: #a9a9a9;
       }
+    }
+    .play {
+      margin-right: 0.9rem;
+      color: #f50057;
     }
   }
 `;
@@ -241,9 +258,7 @@ const Ratings = styled.div`
   position: relative;
   .percentage {
     position: absolute;
-    top: 25%;
-    left: 1.5%;
-    /* transform: translate(2.5px, 25px); */
+    transform: translate(13px, 10px);
   }
   .imdb {
     display: flex;
@@ -255,7 +270,7 @@ const Ratings = styled.div`
 `;
 
 const Vote = styled.div`
-  margin: 0.5rem 0rem;
+  margin: 0.8rem 0rem;
   p {
     display: flex;
   }
@@ -266,7 +281,7 @@ const Vote = styled.div`
 `;
 
 const Awards = styled.div`
-  margin: 0.5rem 0rem;
+  margin: 0.8rem 0rem;
   img {
     width: 1.3rem;
     margin-right: 0.3rem;
@@ -290,7 +305,7 @@ const List = styled.div`
 `;
 
 const Overview = styled.div`
-  margin-top: 1.5rem;
+  margin-top: 0.8rem;
   width: 80%;
 `;
 

@@ -25,6 +25,7 @@ export const fetchRecent = () => async (dispatch) => {
   const cartoonData2 = await axios.get(cartoons2URL());
   const kissingBooth = await axios.get(netflixURL());
   const harryPotter = await axios.get(fantasyURL());
+
   dispatch({
     type: "POPULAR",
     payload: {

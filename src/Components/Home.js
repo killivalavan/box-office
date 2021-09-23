@@ -4,6 +4,7 @@ import { fetchRecent } from "../Actions/searchAction";
 import Movie from "./Movie";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
+import image from "../img/notFound.svg";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -16,19 +17,21 @@ const Home = () => {
 
   // get loaction
   const location = useLocation();
-  const pathId = location.pathname.split("/")[1];
+  //const pathId = location.pathname.split("/")[1];
 
+  //To  hide Scroll
   if (location.pathname !== "/") {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "auto";
   }
 
+  //console.log(searched.data.Search);
   return (
     <Title>
-      {searched.length ? (
+      {searched ? (
         <div>
-          <h2>Searched results</h2>
+          {searched.length ? <h2>Searched results</h2> : ""}
           <StyledMovie>
             {searched.map((item) => (
               <Movie
@@ -42,49 +45,13 @@ const Home = () => {
           </StyledMovie>
         </div>
       ) : (
-        ""
+        <NotFound>
+          <img src={image} alt='' />
+          <h1>Whoops! We couldn't find what you're looking for...</h1>
+        </NotFound>
       )}
 
-      <h2>Popular series</h2>
-      <StyledMovie>
-        {popular.map((item) => (
-          <Movie
-            imdbID={item.imdbID}
-            img={item.Poster}
-            title={item.Title}
-            year={item.Year}
-            key={item.imdbID}
-          />
-        ))}
-      </StyledMovie>
-
-      <h2>Fantasy Novel's</h2>
-      <StyledMovie>
-        {harryPotter.map((item) => (
-          <Movie
-            imdbID={item.imdbID}
-            img={item.Poster}
-            title={item.Title}
-            year={item.Year}
-            key={item.imdbID}
-          />
-        ))}
-      </StyledMovie>
-
-      <h2>Netflix</h2>
-      <StyledMovie>
-        {kissingBooth.map((item) => (
-          <Movie
-            imdbID={item.imdbID}
-            img={item.Poster}
-            title={item.Title}
-            year={item.Year}
-            key={item.imdbID}
-          />
-        ))}
-      </StyledMovie>
-
-      <h2>Cartoon's</h2>
+      {cartoon.length ? <h2>Disney flim's</h2> : ""}
       <StyledMovie>
         {cartoon2.map((item) => (
           <Movie
@@ -97,7 +64,46 @@ const Home = () => {
         ))}
       </StyledMovie>
 
-      <h2>Joseph Barbera</h2>
+      {popular.length ? <h2>Mystery serie's</h2> : ""}
+      <StyledMovie>
+        {popular.map((item) => (
+          <Movie
+            imdbID={item.imdbID}
+            img={item.Poster}
+            title={item.Title}
+            year={item.Year}
+            key={item.imdbID}
+          />
+        ))}
+      </StyledMovie>
+
+      {harryPotter.length ? <h2>Fantasy Novel's</h2> : ""}
+      <StyledMovie>
+        {harryPotter.map((item) => (
+          <Movie
+            imdbID={item.imdbID}
+            img={item.Poster}
+            title={item.Title}
+            year={item.Year}
+            key={item.imdbID}
+          />
+        ))}
+      </StyledMovie>
+
+      {kissingBooth.length ? <h2>Netflix</h2> : ""}
+      <StyledMovie>
+        {kissingBooth.map((item) => (
+          <Movie
+            imdbID={item.imdbID}
+            img={item.Poster}
+            title={item.Title}
+            year={item.Year}
+            key={item.imdbID}
+          />
+        ))}
+      </StyledMovie>
+
+      {cartoon2.length ? <h2>Joseph Barbera</h2> : ""}
       <StyledMovie>
         {cartoon.map((item) => (
           <Movie
@@ -114,16 +120,32 @@ const Home = () => {
 };
 
 const Title = styled.div`
-  margin-left: 5rem;
+  width: 90%;
+  margin: auto;
+  margin-right: 6rem;
   h2 {
-    margin: 4rem 0rem 0rem 0rem;
+    margin: 3rem 0rem 0rem 1rem;
     color: #f50057;
+    font-size: 2rem;
+    font-weight: normal;
   }
 `;
 
 const StyledMovie = styled.div`
   display: flex;
   flex-wrap: wrap;
+`;
+
+const NotFound = styled.div`
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 10rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 export default Home;

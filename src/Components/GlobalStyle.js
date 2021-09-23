@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
-    h1,h2,h3,h4,p, ul,span, button{
+    h1,h2,h3,h4,p, ul,span,a{
         color: white;
         font-family: 'Stylish', sans-serif;
     }

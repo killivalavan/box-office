@@ -29,13 +29,20 @@ const Nav = () => {
 
   return (
     <StyledNav>
-      <div className='title'>
+      <div onClick={clearHandler} className='title'>
         <img src={icon} alt='' />
-        <h2>Box Office</h2>
+        <h2>
+          <span>B</span>ox Office
+        </h2>
       </div>
       {pathname === "/" && (
         <form onSubmit={submitHandler}>
-          <input value={textInput} onChange={inputHandler} type='text' />
+          <input
+            value={textInput}
+            onChange={inputHandler}
+            type='text'
+            placeholder='Movies, Series, Episode...'
+          />
           <button className='clear'>
             <FontAwesomeIcon onClick={clearHandler} size='2x' icon={faTimes} />
           </button>
@@ -47,18 +54,24 @@ const Nav = () => {
 
 const StyledNav = styled.div`
   display: flex;
+  flex-wrap: wrap;
   background-color: black;
   justify-content: center;
   align-items: center;
-  margin: 0.6rem 10rem 4rem 2rem;
+  margin: 0.6rem 10rem 2rem 2rem;
   .title {
     flex-grow: 1;
     margin-left: 3rem;
     display: flex;
+    cursor: pointer;
     h2 {
       font-weight: 200;
       font-size: 1.3rem;
       font-family: "Pacifico", cursive;
+      span {
+        color: #f50057;
+        font-family: "Pacifico", cursive;
+      }
     }
     img {
       width: 2rem;
@@ -72,13 +85,14 @@ const StyledNav = styled.div`
     position: relative;
     input {
       width: 100%;
-      padding: 0.6rem 0.5rem;
+      padding: 0.5rem 0.5rem;
       border: none;
       border-radius: 5px;
-      background: rgba(255, 255, 255, 0.8);
-
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+      outline: none;
       &:focus {
-        background: rgba(255, 255, 255, 0.9);
+        background: rgb(255, 255, 255);
       }
     }
     .clear {

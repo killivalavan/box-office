@@ -1,5 +1,6 @@
 const initState = {
   movieDetails: {},
+  isLoading: true,
 };
 
 export const movieDetailReducer = (state = initState, action) => {
@@ -8,6 +9,12 @@ export const movieDetailReducer = (state = initState, action) => {
       return {
         ...state,
         movieDetails: action.payload.movieDetails.data,
+        isLoading: false,
+      };
+    case "LOADING":
+      return {
+        ...state,
+        isLoading: true,
       };
 
     default:
