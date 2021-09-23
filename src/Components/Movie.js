@@ -33,7 +33,7 @@ const Movie = ({ img, imdbID, title, year }) => {
 const Image = styled.div``;
 
 const StyledMovie = styled.div`
-  margin: 0rem 1.3rem;
+  margin: 0rem 1rem;
   p {
     font-size: 1rem;
     font-weight: 600;
