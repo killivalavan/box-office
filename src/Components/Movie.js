@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { fetchDetail } from "../Actions/movieAction";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Movie = ({ img, imdbID, title, year }) => {
   //Load Detail
