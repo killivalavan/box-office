@@ -139,7 +139,7 @@ const StyledMovie = styled.div`
   display: flex;
   flex-wrap: wrap;
   @media screen and (max-width: 735px) {
-    justify-content: center;
+    justify-content: space-evenly;
   }
 `;
 
