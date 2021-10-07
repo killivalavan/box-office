@@ -54,7 +54,7 @@ const Nav = () => {
 
 const StyledNav = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  //flex-wrap: wrap;
   background-color: black;
   justify-content: center;
   align-items: center;
@@ -104,6 +104,16 @@ const StyledNav = styled.div`
       color: grey;
       transform: translateX(1px);
       font-size: 0.6rem;
+    }
+  }
+  @media screen and (max-width: 735px) {
+    width: 90%;
+    margin: 1rem auto;
+    h2 {
+      display: none;
+    }
+    .title {
+      margin-left: 1rem;
     }
   }
 `;

@@ -129,11 +129,18 @@ const Title = styled.div`
     font-size: 2rem;
     font-weight: normal;
   }
+  @media screen and (max-width: 735px) {
+    width: 95%;
+    margin: auto;
+  }
 `;
 
 const StyledMovie = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media screen and (max-width: 735px) {
+    justify-content: center;
+  }
 `;
 
 const NotFound = styled.div`
