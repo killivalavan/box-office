@@ -49,12 +49,12 @@ const StyledMovie = styled.div`
   @media screen and (max-width: 735px) {
     margin: 0rem 0.4rem;
     img {
-      height: 13rem;
+      height: 15rem;
       width: 9rem;
       margin-right: 0.5rem;
     }
     p {
-      font-size: 0.7rem;
+      font-size: 0.9rem;
       font-weight: 600;
       margin: 2rem 0rem 0.5rem 0rem;
       width: 8rem;
