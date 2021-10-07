@@ -9,6 +9,8 @@ import icon from "../img/icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
+//Counter npm
+import CountUp from "react-countup";
 
 const MovieDetails = () => {
   const { movieDetails, isLoading } = useSelector((state) => state.MovieDetail);
@@ -101,6 +103,7 @@ const MovieDetails = () => {
                 <Vote>
                   <p>
                     <img src={vote} alt='' />
+                    {/* <CountUp end={1456} duration={5} /> */}
                     {movieDetails.imdbVotes}
                   </p>
                 </Vote>
