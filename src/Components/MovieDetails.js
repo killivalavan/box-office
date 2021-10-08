@@ -59,7 +59,6 @@ const MovieDetails = () => {
                 d='M6 18L18 6M6 6l12 12'
               />
             </svg>
-            <img src={close} alt='' />
           </div>
 
           {movieDetails.Response === "True" ? (
@@ -200,6 +199,16 @@ const Details = styled.div`
       color: white;
     }
   }
+    @media screen and (max-width: 735px) {
+      margin-bottom: 4rem;
+      .title {
+        margin: 1rem 2rem;
+    }
+    .close{
+      width: 2rem;
+      transform: translate(-10px, -20px);
+
+    }
 `;
 
 const Card = styled.div`
@@ -209,11 +218,19 @@ const Card = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin: 7rem;
+  @media screen and (max-width: 735px) {
+    margin: 1rem;
+  }
 `;
 
 const Poster = styled.div`
   img {
     border-radius: 10px;
+  }
+  @media screen and (max-width: 735px) {
+    img {
+      width: 12rem;
+    }
   }
 `;
 
@@ -251,6 +268,30 @@ const Content = styled.div`
     .play {
       margin-right: 0.9rem;
       color: #f50057;
+    }
+  }
+  @media screen and (max-width: 735px) {
+    margin: 1.5rem auto;
+    width: 95%;
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+`;
+
+const List = styled.div`
+  ul {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+  li:first-child {
+    list-style: none;
+  }
+  @media screen and (max-width: 735px) {
+    ul {
+      gap: 1rem;
+      font-size: 0.7rem;
     }
   }
 `;
@@ -294,22 +335,19 @@ const Awards = styled.div`
     display: flex;
     align-items: center;
   }
-`;
-
-const List = styled.div`
-  ul {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 1rem;
-  }
-  li:first-child {
-    list-style: none;
+  @media screen and (max-width: 735px) {
+    p {
+      width: 100%;
+    }
   }
 `;
 
 const Overview = styled.div`
   margin-top: 0.8rem;
   width: 80%;
+  @media screen and (max-width: 735px) {
+    width: 100%;
+  }
 `;
 
 const Crew = styled.div`
