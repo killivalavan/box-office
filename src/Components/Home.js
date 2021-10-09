@@ -152,6 +152,12 @@ const NotFound = styled.div`
     width: 10rem;
     margin-bottom: 2rem;
   }
+
+  @media screen and (max-width: 735px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 export default Home;

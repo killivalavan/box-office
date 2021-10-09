@@ -205,7 +205,7 @@ const Details = styled.div`
     }
     .close {
       width: 2rem;
-      transform: translate(-10px, -20px);
+      transform: translate(-10px, -5px);
     }
   }
 `;
@@ -218,7 +218,7 @@ const Card = styled.div`
   justify-content: center;
   margin: 7rem;
   @media screen and (max-width: 735px) {
-    margin: 1rem;
+    margin: 3rem 1rem 1rem 1rem;
   }
 `;
 
