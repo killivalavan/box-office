@@ -131,6 +131,9 @@ const Title = styled.div`
   @media screen and (max-width: 735px) {
     width: 95%;
     margin: auto;
+    h2 {
+      margin-left: 2rem;
+    }
   }
 `;
 
