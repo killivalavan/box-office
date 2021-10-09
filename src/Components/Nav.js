@@ -54,7 +54,6 @@ const Nav = () => {
 
 const StyledNav = styled.div`
   display: flex;
-  //flex-wrap: wrap;
   background-color: black;
   justify-content: center;
   align-items: center;
@@ -87,7 +86,7 @@ const StyledNav = styled.div`
       width: 100%;
       padding: 0.5rem 0.5rem;
       border: none;
-      border-radius: 5px;
+      border-radius: 3px;
       background: rgba(255, 255, 255, 0.9);
       font-size: 1rem;
       outline: none;

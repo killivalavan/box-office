@@ -122,7 +122,6 @@ const Home = () => {
 const Title = styled.div`
   width: 90%;
   margin: auto;
-  margin-right: 6rem;
   h2 {
     margin: 3rem 0rem 0rem 1rem;
     color: #f50057;
