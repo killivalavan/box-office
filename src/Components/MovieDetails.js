@@ -161,7 +161,6 @@ const Details = styled.div`
   z-index: 1;
   background: rgb(0, 0, 0);
   overflow-y: scroll;
-
   .title {
     margin-left: 5rem;
     margin-top: 0.5rem;
@@ -199,16 +198,16 @@ const Details = styled.div`
       color: white;
     }
   }
-    @media screen and (max-width: 735px) {
-      margin-bottom: 4rem;
-      .title {
-        margin: 1rem 2rem;
+  @media screen and (max-width: 735px) {
+    margin-bottom: 4rem;
+    .title {
+      margin: 1rem 2rem;
     }
-    .close{
+    .close {
       width: 2rem;
       transform: translate(-10px, -20px);
-
     }
+  }
 `;
 
 const Card = styled.div`
@@ -220,6 +219,7 @@ const Card = styled.div`
   margin: 7rem;
   @media screen and (max-width: 735px) {
     margin: 1rem;
+    padding-bottom: 2rem;
   }
 `;
 
@@ -260,14 +260,14 @@ const Content = styled.div`
     border: 3px solid #f50057;
     font-size: 1rem;
     font-weight: bold;
+    .play {
+      margin-right: 0.9rem;
+      color: #f50057;
+    }
     &:hover {
       .play {
         color: #a9a9a9;
       }
-    }
-    .play {
-      margin-right: 0.9rem;
-      color: #f50057;
     }
   }
   @media screen and (max-width: 735px) {
