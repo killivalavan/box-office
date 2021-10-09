@@ -17,7 +17,6 @@ const Home = () => {
 
   // get loaction
   const location = useLocation();
-  //const pathId = location.pathname.split("/")[1];
 
   //To  hide Scroll
   if (location.pathname !== "/") {
@@ -26,7 +25,6 @@ const Home = () => {
     document.body.style.overflow = "auto";
   }
 
-  //console.log(searched.data.Search);
   return (
     <Title>
       {searched ? (

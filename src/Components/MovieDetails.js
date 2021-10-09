@@ -4,13 +4,10 @@ import styled from "styled-components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import award from "../img/medal.png";
 import vote from "../img/like.png";
-import close from "../img/close.svg";
 import icon from "../img/icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
-//Counter npm
-import CountUp from "react-countup";
 
 const MovieDetails = () => {
   const { movieDetails, isLoading } = useSelector((state) => state.MovieDetail);
@@ -102,7 +99,6 @@ const MovieDetails = () => {
                 <Vote>
                   <p>
                     <img src={vote} alt='' />
-                    {/* <CountUp end={1456} duration={5} /> */}
                     {movieDetails.imdbVotes}
                   </p>
                 </Vote>
@@ -240,7 +236,6 @@ const Content = styled.div`
   margin-left: 3rem;
   padding-bottom: 8rem;
   h1 {
-    /* margin-top: 2rem; */
     span {
       color: #a9a9a9;
       transition: all 0.2s ease;
