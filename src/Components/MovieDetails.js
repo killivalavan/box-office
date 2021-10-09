@@ -219,7 +219,6 @@ const Card = styled.div`
   margin: 7rem;
   @media screen and (max-width: 735px) {
     margin: 1rem;
-    padding-bottom: 5rem;
   }
 `;
 
@@ -239,6 +238,7 @@ const Content = styled.div`
   flex-direction: column;
   width: 60%;
   margin-left: 3rem;
+  padding-bottom: 5rem;
   h1 {
     /* margin-top: 2rem; */
     span {
@@ -291,7 +291,7 @@ const List = styled.div`
   @media screen and (max-width: 735px) {
     ul {
       gap: 1rem;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
   }
 `;
