@@ -39,9 +39,9 @@ const StyledMovie = styled.div`
     font-weight: 600;
     margin: 2rem 0rem 1.5rem 0rem;
     width: 60%;
-    span{
+    span {
       color: #a9a9a9;
-       &:hover {
+      &:hover {
         color: #ffff;
       }
     }

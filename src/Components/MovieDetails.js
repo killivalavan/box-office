@@ -238,7 +238,7 @@ const Content = styled.div`
   flex-direction: column;
   width: 60%;
   margin-left: 3rem;
-  padding-bottom: 9rem;
+  padding-bottom: 8rem;
   h1 {
     /* margin-top: 2rem; */
     span {
@@ -271,7 +271,7 @@ const Content = styled.div`
     }
   }
   @media screen and (max-width: 735px) {
-    margin: 1.5rem auto;
+    margin: 2rem auto 1.5rem auto;
     width: 95%;
     h1 {
       font-size: 1.5rem;

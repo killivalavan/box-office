@@ -123,7 +123,7 @@ const Title = styled.div`
   width: 90%;
   margin: auto;
   h2 {
-    margin: 3rem 0rem 0rem 1rem;
+    margin: 3rem 0rem 0rem 0rem;
     color: #f50057;
     font-size: 2rem;
     font-weight: normal;
