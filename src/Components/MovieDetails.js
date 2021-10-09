@@ -219,7 +219,7 @@ const Card = styled.div`
   margin: 7rem;
   @media screen and (max-width: 735px) {
     margin: 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 5rem;
   }
 `;
 
@@ -291,7 +291,7 @@ const List = styled.div`
   @media screen and (max-width: 735px) {
     ul {
       gap: 1rem;
-      font-size: 0.7rem;
+      font-size: 0.9rem;
     }
   }
 `;
