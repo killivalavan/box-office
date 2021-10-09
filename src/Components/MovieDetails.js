@@ -238,7 +238,7 @@ const Content = styled.div`
   flex-direction: column;
   width: 60%;
   margin-left: 3rem;
-  padding-bottom: 5rem;
+  padding-bottom: 9rem;
   h1 {
     /* margin-top: 2rem; */
     span {
