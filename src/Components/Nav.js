@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom";
 import icon from "../img/icon.png";
+import { Tooltip } from "@mui/material";
+
 const Nav = () => {
   const dispatch = useDispatch();
   const [textInput, setTextInput] = useState("");
@@ -43,9 +45,15 @@ const Nav = () => {
             type='text'
             placeholder='Movies, Series, Episode...'
           />
-          <button className='clear'>
-            <FontAwesomeIcon onClick={clearHandler} size='2x' icon={faTimes} />
-          </button>
+          <Tooltip title='Close' arrow>
+            <button className='clear'>
+              <FontAwesomeIcon
+                onClick={clearHandler}
+                size='2x'
+                icon={faTimes}
+              />
+            </button>
+          </Tooltip>
         </form>
       )}
     </StyledNav>
